@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+
+  postgres:
+    container_name: department-database
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: test
+    ports:
+      - "5433:5432"
+    networks:
+      - my-network
+    volumes:
+      - /Users/mohamedogleh/Desktop/my-app/volumes/department/:/var/lib/postgresql/data
+
+
+  postgres-admin:
+    container_name: department-pg-admin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "oglehmo@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "1234"
+    ports:
+      - "8888:80"
+    networks:
+      - my-network
+    volumes:
+      - /Users/mohamedogleh/Desktop/my-app/volumes/department/pg-admin:/var/lib/pgadmin
+
+networks:
+  my-network:
+    external: true
+
+volumes:
+  department:
+
+
+

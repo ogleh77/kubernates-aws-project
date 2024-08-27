@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+
+          - id: USER-SERVICE
+            uri: lb://USER-SERVICE
+            predicates:
+              - path=/users/**
+
+          - id: DEPARTMENT-SERVICE
+            uri: lb://DEPARTMENT-SERVICE
+            predicates:
+              - path=/department/**
+server:
+  port: 8080
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: localhost

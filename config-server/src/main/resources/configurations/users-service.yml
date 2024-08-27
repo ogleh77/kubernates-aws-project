@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    username: postgres
+    password: 1234
+    url: jdbc:postgresql://localhost:5433/test
+server:
+  port: 8082
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+
