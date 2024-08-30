@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: my-app
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    username: ogleh
+    password: 1234
+  jpa:
+    hibernate:
+     ddl-auto: update
+  profiles:
+    active: deployment
+
+
+
+
